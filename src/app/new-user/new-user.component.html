@@ -1,0 +1,9 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Introduce un usuario!" id="new-user" type="text"
+    (keyup.enter)="save()" [formControl]="textField">
+    <mat-error *ngIf="textField.hasError('required')">
+      El nombre es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+</form>

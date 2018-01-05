@@ -1,0 +1,9 @@
+<input type="checkbox" [checked]="user.activo" [formControl]="checkField" />
+<label>
+  {{ user.nombre }}
+</label>
+
+<button mat-icon-button color="primary" focusable="false" (click)="deleteUser()">
+  <mat-icon>delete</mat-icon>
+</button>
+<input class="edit" type="text" [value]="user.nombre" #textInput (keyup.enter)="updateText()" (blur)="updateText()" [formControl]="textField"/>
