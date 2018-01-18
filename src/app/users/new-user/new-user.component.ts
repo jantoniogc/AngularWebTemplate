@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { FormControl, Validators } from '@angular/forms';
-import { AppState } from '../../redux/app.state';
+import { AppState } from '../../../redux/app.state';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { UserAddAction } from '../../redux/user/user.actions';
+import { UserAddAction } from '../../../redux/user/user.actions';
 
 @Component({
   selector: 'app-new-user',
@@ -12,7 +12,9 @@ import { UserAddAction } from '../../redux/user/user.actions';
 })
 export class NewUserComponent implements OnInit {
   textField: FormControl;
-  constructor(private store: Store<AppState>) {
+  constructor(
+    private store: Store<AppState>
+  ) {
     this.textField = new FormControl('', [Validators.required]);
   }
 

@@ -1,0 +1,12 @@
+<mat-chip-list>
+  <mat-chip color="primary" (click)="byEmail=true">By Email</mat-chip>
+  <mat-chip color="primary" (click)="byEmail=false">By Social Network</mat-chip>
+</mat-chip-list>
+
+<aside *ngIf="byEmail ; then emailContact; else socialContact"></aside>
+<ng-template #emailContact>
+  <app-email></app-email>
+</ng-template>
+<ng-template #socialContact>
+  <app-social></app-social>
+</ng-template>

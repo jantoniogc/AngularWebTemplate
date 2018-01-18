@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../redux/user/user.model';
+import { User } from '../../../redux/user/user.model';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../redux/app.state';
+import { AppState } from '../../../redux/app.state';
 import { FormControl, Validators } from '@angular/forms';
-import { UserToggleAction, UserRemoveAction, UserUpdateAction } from '../../redux/user/user.actions';
+import { UserToggleAction, UserRemoveAction, UserUpdateAction } from '../../../redux/user/user.actions';
 
 @Component({
   selector: 'app-user',

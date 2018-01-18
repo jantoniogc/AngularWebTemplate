@@ -1,0 +1,16 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" id="new-user" type="text" [formControl]="email">
+    <mat-error *ngIf="email.invalid">{{getErrorEmailMessage()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Asunto" id="new-user" type="text" [formControl]="asunto">
+    <mat-error *ngIf="asunto.hasError('required')">
+      El nombre es
+      <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <button mat-icon-button color="primary" (click)="send()">
+    <i class="fa fa-envelope fa-stack-5x"></i>
+  </button>
+</form>
