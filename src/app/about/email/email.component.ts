@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
+import { Message } from '../models/message.class';
 
 @Component({
   selector: 'app-email',
@@ -9,26 +9,28 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
   styleUrls: ['./email.component.scss']
 })
 export class EmailComponent implements OnInit {
-  email: FormControl;
-  asunto: FormControl;
+  public messageForm: FormGroup;
+  public message: Message;
+
 
   constructor(
-    public dialog: MatDialog
-  ) {
-    this.email = new FormControl('', [Validators.required, Validators.email]);
-    this.asunto = new FormControl('', [Validators.required]);
+    private formBuilder: FormBuilder
+  ) { }
+
+
+  ngOnInit() {
+    this.buildForm();
   }
 
-  getErrorEmailMessage() {
-    return this.email.hasError('required') ? 'Debería indicar un email'
-      : this.email.hasError('email') ? 'El Email indicado no es correcto' : '';
+  buildForm() {
+     this.messageForm = this.formBuilder.group({
+      sender: ['', [Validators.required, Validators.email]],
+      subject: ['', Validators.required],
+      body: ['']
+    });
   }
 
-  ngOnInit() {}
-
-  send() {
-    if (this.email.valid && this.asunto.valid) {
-      consola.log('correo enviado');
-    }
+  onSubmit() {
+    console.log(this.messageForm.value);
   }
 }

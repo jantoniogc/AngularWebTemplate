@@ -1,0 +1,29 @@
+<div class="midde-left">
+  <form class="example-container" [formGroup]="operationForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Fecha" id="new-user" type="date" formControlName="date">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Importe" id="new-user" type="number" formControlName="amount">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Tipo de Operación" id="new-user" type="number" formControlName="operationType">
+    </mat-form-field>
+    <button mat-button color="primary" type="submit" [disabled]="!operationForm.valid">
+      Enviar
+    </button>
+  </form>
+  <ul class="blockquote">
+    <p>
+      {{operationForm.errors | json}}
+    </p>
+    <p>
+      {{operationForm.valid | json}}
+    </p>
+    <p>
+      {{operationForm.value | json}}
+    </p>
+  </ul>
+
+</div>
+

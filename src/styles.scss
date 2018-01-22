@@ -5,10 +5,13 @@
 @import '../node_modules/font-awesome/scss/font-awesome';
 
 
+.blockquote {
+  border-left: 0.3rem solid #d1d1d1;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1rem 1.5rem;
+}
 
-
-
-
-// body {
-//   background:lightgrey;
-// }
+.blockquote p {
+  color: #9c9393
+}

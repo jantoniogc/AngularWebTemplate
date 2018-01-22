@@ -19,7 +19,8 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
-    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
     MatMenuModule,
@@ -31,6 +32,8 @@ import { CommonModule } from '@angular/common';
     MatChipsModule
   ],
   exports: [
+    FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
     MatMenuModule,

@@ -19,14 +19,16 @@ const routes: Routes = [
   {
     path: 'users',
     loadChildren: '../users/users.module#UsersModule'
+  },
+  {
+    path: 'cash',
+    loadChildren: '../cash/cash.module#CashModule'
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    // FormsModule,
-    // ReactiveFormsModule,
     SharedModule,
     RouterModule.forRoot(routes)
   ],

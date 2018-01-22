@@ -1,16 +1,28 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Email" id="new-user" type="text" [formControl]="email">
-    <mat-error *ngIf="email.invalid">{{getErrorEmailMessage()}}</mat-error>
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Asunto" id="new-user" type="text" [formControl]="asunto">
-    <mat-error *ngIf="asunto.hasError('required')">
-      El nombre es
-      <strong>requerido</strong>
-    </mat-error>
-  </mat-form-field>
-  <button mat-icon-button color="primary" (click)="send()">
-    <i class="fa fa-envelope fa-stack-5x"></i>
-  </button>
-</form>
+<div class="midde-left">
+  <form class="example-container" [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" id="new-user" type="text" formControlName="sender">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Asunto" id="new-user" type="text" formControlName="subject">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Body" id="new-user" type="text" formControlName="body"></textarea>
+    </mat-form-field>
+    <button mat-icon-button color="primary" type="submit" style="align-content: center;" [disabled]="!messageForm.valid">
+      <i class="fa fa-envelope fa-stack-5x"></i>
+    </button>
+  </form>
+  <ul class="blockquote">
+    <p>
+      {{messageForm.errors | json}}
+    </p>
+    <p>
+      {{messageForm.valid | json}}
+    </p>
+    <p>
+      {{messageForm.value | json}}
+    </p>
+  </ul>
+
+</div>
