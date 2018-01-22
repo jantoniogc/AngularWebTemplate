@@ -1,0 +1,4 @@
+<mat-form-field class="full-width" [formGroup]="form">
+  <input matInput placeholder="{{label}}" id="new-user" [type]="type" [formControlName]="field">
+  <app-control-errors [form]="form" [field]="field"></app-control-errors>
+</mat-form-field>

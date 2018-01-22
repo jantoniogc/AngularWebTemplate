@@ -15,10 +15,14 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { InputComponent } from './input/input.component';
+import { ControlErrorsComponent } from './control-errors/control-errors.component';
+import { TextareaComponent } from './textarea/textarea.component';
 
 
 @NgModule({
   imports: [
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
@@ -42,11 +46,15 @@ import { CommonModule } from '@angular/common';
     MatCheckboxModule,
     MatInputModule,
     MatListModule,
-    MatChipsModule
+    MatChipsModule,
+    ControlErrorsComponent,
+    InputComponent,
+    TextareaComponent
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  declarations: [InputComponent, ControlErrorsComponent, TextareaComponent]
 })
 export class SharedModule {}

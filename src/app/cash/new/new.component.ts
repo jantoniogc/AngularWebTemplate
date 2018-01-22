@@ -6,6 +6,7 @@ import {
   AbstractControl
 } from '@angular/forms';
 import { Operation } from '../models/operation.class';
+import { FormToolsService } from '../../shared/form-tools.service';
 
 @Component({
   selector: 'app-new',
@@ -15,7 +16,9 @@ import { Operation } from '../models/operation.class';
 export class NewComponent implements OnInit {
   public operationForm: FormGroup;
   public operation: Operation;
-  currentDate = new Date(Date.now());
+  public formTools: FormToolsService;
+
+  private currentDate = new Date(Date.now());
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -31,35 +34,44 @@ export class NewComponent implements OnInit {
         [Validators.required]
       ],
       amount: [
-        [],
+        [this.operation.amount],
         [
           Validators.required,
           this.mustBePositiveValue
         ]
       ],
       operationType: [
-        [],
+        [this.operation.operationType],
+        [
+          Validators.required
+        ]
+      ],
+      description: [
+        [this.operation.description],
         [
           Validators.required
         ]
       ]
     });
+    this.formTools = new FormToolsService(this.operationForm);
   }
 
   createNewOperation() {
-    this.operation = new Operation(this.currentDate, 0, 1);
+    this.operation = new Operation(this.currentDate, 0, 0, '');
   }
 
   onSubmit() {
     this.operation = this.operationForm.value;
   }
 
-  mustBeDateRange(date1: Date, date2: Date) {}
+  mustBeDateRange(date1: Date, date2: Date) {
+
+  }
 
   mustBePositiveValue(control: AbstractControl) {
     const isInvalid = control.value !== undefined && (isNaN(control.value) || control.value < 0);
     if (isInvalid) {
-      return {'mustbepositive' : true};
+      return {'mustBePositiveNUmber' : true};
     } else {
       return null;
     }

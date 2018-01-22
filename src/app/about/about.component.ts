@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatChip, MatChipList  } from '@angular/material';
 
 @Component({
   selector: 'app-about',

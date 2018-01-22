@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmailComponent } from './email.component';
+import { SharedModule } from '../../shared/shared.module';
+import { AboutModule } from '../about.module';
 
 describe('EmailComponent', () => {
   let component: EmailComponent;
@@ -23,3 +25,4 @@ describe('EmailComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

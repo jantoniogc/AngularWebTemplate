@@ -20,6 +20,10 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedModule
   ],
-  declarations: [AboutComponent, EmailComponent, SocialComponent]
+  declarations: [
+    AboutComponent,
+    EmailComponent,
+    SocialComponent
+  ],
 })
 export class AboutModule {}

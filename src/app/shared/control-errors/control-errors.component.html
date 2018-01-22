@@ -1,0 +1,3 @@
+<mat-error *ngIf="formTools.hasErrorToShow(field)">
+  {{formTools.getErrors(field) | json}}
+</mat-error>
