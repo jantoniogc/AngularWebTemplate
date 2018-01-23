@@ -33,10 +33,10 @@ import { TextareaComponent } from './textarea/textarea.component';
     MatCheckboxModule,
     MatInputModule,
     MatListModule,
-    MatChipsModule,
-    BrowserAnimationsModule
+    MatChipsModule
   ],
   exports: [
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
@@ -48,7 +48,6 @@ import { TextareaComponent } from './textarea/textarea.component';
     MatInputModule,
     MatListModule,
     MatChipsModule,
-    BrowserAnimationsModule,
     ControlErrorsComponent,
     InputComponent,
     TextareaComponent

@@ -11,16 +11,21 @@ import { FormToolsService } from '../../shared/form-tools.service';
 @Component({
   selector: 'app-new',
   templateUrl: './new.component.html',
-  styleUrls: ['./new.component.scss']
+  styleUrls: ['./new.component.scss'],
+  providers: [
+    FormToolsService
+  ]
 })
 export class NewComponent implements OnInit {
   public operationForm: FormGroup;
   public operation: Operation;
-  public formTools: FormToolsService;
 
   private currentDate = new Date(Date.now());
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private formTools: FormToolsService
+  ) {}
 
   ngOnInit() {
     this.createNewOperation();
@@ -35,25 +40,12 @@ export class NewComponent implements OnInit {
       ],
       amount: [
         [this.operation.amount],
-        [
-          Validators.required,
-          this.mustBePositiveValue
-        ]
+        [Validators.required, this.mustBePositiveValue]
       ],
-      operationType: [
-        [this.operation.operationType],
-        [
-          Validators.required
-        ]
-      ],
-      description: [
-        [this.operation.description],
-        [
-          Validators.required
-        ]
-      ]
+      operationType: [[this.operation.operationType], [Validators.required]],
+      description: [[this.operation.description], [Validators.required]]
     });
-    this.formTools = new FormToolsService(this.operationForm);
+    this.formTools.formGroupValue(this.operationForm);
   }
 
   createNewOperation() {
@@ -64,14 +56,14 @@ export class NewComponent implements OnInit {
     this.operation = this.operationForm.value;
   }
 
-  mustBeDateRange(date1: Date, date2: Date) {
-
-  }
+  mustBeDateRange(date1: Date, date2: Date) {}
 
   mustBePositiveValue(control: AbstractControl) {
-    const isInvalid = control.value !== undefined && (isNaN(control.value) || control.value < 0);
+    const isInvalid =
+      control.value !== undefined &&
+      (isNaN(control.value) || control.value < 0);
     if (isInvalid) {
-      return {'mustBePositiveNUmber' : true};
+      return { mustBePositiveNUmber: true };
     } else {
       return null;
     }

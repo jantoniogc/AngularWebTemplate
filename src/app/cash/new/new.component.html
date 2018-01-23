@@ -3,7 +3,7 @@
     <app-input [form]="operationForm" label="Fecha" type="date" field="date"></app-input>
     <app-input [form]="operationForm" label="Importe" type="number" field="amount"></app-input>
     <app-input [form]="operationForm" label="Tipo de Operación" type="number" field="operationType"></app-input>
-    <app-textarea [form]="operationForm" label="Descripción" type="string" field="description"></app-textarea>
+    <app-textarea [form]="operationForm" label="Descripción" type="string" id="description" name="description" field="description"></app-textarea>
     <button mat-button color="primary" type="submit" [disabled]="!operationForm.valid">
       Enviar
     </button>
@@ -12,7 +12,7 @@
     <p>
       {{operationForm.errors | json}}
     </p>
-    <p>
+    <p name="form-valid">
       {{operationForm.valid | json}}
     </p>
     <p>
