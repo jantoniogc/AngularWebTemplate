@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SocialComponent } from './social.component';
+import { SharedModule } from '../../shared/shared.module';
+import { CommonModule } from '@angular/common';
 
 describe('SocialComponent', () => {
   let component: SocialComponent;
@@ -8,9 +10,9 @@ describe('SocialComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SocialComponent ]
-    })
-    .compileComponents();
+      imports: [CommonModule, SharedModule],
+      declarations: [SocialComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,19 +1,19 @@
 <div class="midde-left">
   <form class="example-container" [formGroup]="messageForm" (ngSubmit)="onSubmit()">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Email" id="new-user" type="text" formControlName="sender">
+      <input matInput placeholder="Email" id="email" name="email" type="text" formControlName="sender">
       <mat-error *ngIf="showError('sender')">
         {{ messageForm.get('sender').errors | json }}
       </mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Asunto" id="new-user" type="text" formControlName="subject">
+      <input matInput placeholder="Asunto" id="subject" name="subject" type="text" formControlName="subject">
       <mat-error *ngIf="showError('sender')">
          {{ messageForm.get('subject').errors | json}}
       </mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Body" id="new-user" type="text" formControlName="body"></textarea>
+      <textarea matInput placeholder="Body" id="body" name="body" type="text" formControlName="body"></textarea>
     </mat-form-field>
     <button mat-icon-button color="primary" type="submit" style="align-content: center;" [disabled]="!messageForm.valid">
       <i class="fa fa-envelope fa-stack-5x"></i>

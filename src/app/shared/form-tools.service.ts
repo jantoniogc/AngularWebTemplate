@@ -3,7 +3,7 @@ import { FormGroup, AbstractControl } from '@angular/forms';
 
 @Injectable()
 export class FormToolsService {
-  constructor(private formGroup: FormGroup) {}
+  constructor(public formGroup: FormGroup) {}
 
   hasErrorToShow(field) {
     const control: AbstractControl = this.getControl(field);

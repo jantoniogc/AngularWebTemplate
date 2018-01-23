@@ -1,6 +1,6 @@
 <mat-chip-list>
-  <mat-chip color="primary" (click)="byEmail=true">By Email</mat-chip>
-  <mat-chip color="primary" (click)="byEmail=false">By Social Network</mat-chip>
+  <mat-chip color="primary" (click)="byEmail=true" name="byEmail" id="byEmail">By Email</mat-chip>
+  <mat-chip color="primary" (click)="byEmail=false" name="bySocial" id="bySocial">By Social Network</mat-chip>
 </mat-chip-list>
 
 <aside *ngIf="byEmail ; then emailContact; else socialContact"></aside>
