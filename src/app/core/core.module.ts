@@ -6,6 +6,13 @@ import { TopBarComponent } from './shell/top-bar/top-bar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  TranslateModule,
+  TranslateLoader,
+  TranslateStaticLoader
+} from 'ng2-translate';
+import { Http } from '@angular/http';
+import { FooterComponent } from '../footer/footer.component';
 
 const routes: Routes = [
   {
@@ -30,9 +37,18 @@ const routes: Routes = [
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: tralationFactory,
+      deps: [Http]
+    })
   ],
-  declarations: [ShellComponent, MainContentComponent, TopBarComponent],
+  declarations: [ShellComponent, MainContentComponent, TopBarComponent, FooterComponent],
   exports: [ShellComponent]
 })
 export class CoreModule {}
+
+export function tralationFactory(http: Http) {
+  return new TranslateStaticLoader(http, '/assets/i18n', '.json');
+}

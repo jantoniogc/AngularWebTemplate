@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
   selector: 'app-shell',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor(
+    translate: TranslateService
+  ) {
+    // translate.setDefaultLang('en');
+    translate.setDefaultLang('es');
   }
 
+  ngOnInit() {}
 }

@@ -8,7 +8,7 @@
     <button mat-icon-button [routerLink]="[ 'users' ]">
       <mat-icon>perm_identity</mat-icon>
     </button>
-    <button mat-icon-button [routerLink]="[ '/cash' ]">
+    <button mat-icon-button [routerLink]="[ '/cash' ]" >
       <i class="fa fa-money fa-2x" aria-hidden="true"></i>
     </button>
     <button mat-icon-button [matMenuTriggerFor]="appMenuAbout">
@@ -19,7 +19,7 @@
   <mat-menu #appMenuAbout="matMenu">
     <button mat-menu-item [routerLink]="[ '/about' ]" routerLinkActive="active">
       <mat-icon>info</mat-icon>
-      <span>About</span>
+      <span translate>About</span>
     </button>
   </mat-menu>
 </div>
