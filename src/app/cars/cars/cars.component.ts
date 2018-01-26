@@ -21,14 +21,7 @@ export class CarsComponent implements OnInit {
 
   ngOnInit() {
     console.log('Estamos en carsComponent');
-    this.carService.getCarsSmall()
-    .pipe(
-      map((response: Car) => {
-        console.log(response);
-      })
-    );
-
-    console.log(this.cars);
+    this.carService.getCarsSmall().then(cars => this.cars = cars);
 
     this.cols = [
       { field: 'vin', header: 'Vin' },

@@ -1,3 +1,6 @@
+import { DaskboardComponent } from './daskboard/daskboard.component';
+import { Graficas1Component } from './graficas1/graficas1.component';
+import { ProgressComponent } from './progress/progress.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShellComponent } from './shell/shell.component';
@@ -13,6 +16,9 @@ import {
 } from 'ng2-translate';
 import { Http } from '@angular/http';
 import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from './shell/header/header.component';
+import { SidebarComponent } from './shell/sidebar/sidebar.component';
+import { BreadcrumbsComponent } from './shell/breadcrumbs/breadcrumbs.component';
 
 const routes: Routes = [
   {
@@ -48,7 +54,18 @@ const routes: Routes = [
       deps: [Http]
     })
   ],
-  declarations: [ShellComponent, MainContentComponent, TopBarComponent, FooterComponent],
+  declarations: [
+    ShellComponent,
+    MainContentComponent,
+    TopBarComponent,
+    FooterComponent,
+    HeaderComponent,
+    SidebarComponent,
+    BreadcrumbsComponent,
+    ProgressComponent,
+    Graficas1Component,
+    DaskboardComponent
+  ],
   exports: [ShellComponent]
 })
 export class CoreModule {}

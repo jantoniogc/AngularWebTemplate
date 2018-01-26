@@ -12,14 +12,13 @@ export class CarService {
 
   constructor(private http: HttpClient) {}
 
-  getCarsSmall(): Observable<Car> {
+  getCarsSmall() {
     console.log('Servicio cargado');
-    return this.http.get('assets/data/cars-small.json');
-
-      // .toPromise()
-      // .then(res => <Car[]>res.data)
-      // .then(data => {
-      //   return data;
-      // });
+    return this.http.get('assets/data/cars-small.json')
+      .toPromise()
+      .then(res => <Car[]> res)
+      .then(data => {
+        return data;
+      });
   }
 }
