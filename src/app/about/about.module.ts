@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about.component';
 import { EmailComponent } from './email/email.component';
 import { SocialComponent } from './social/social.component';
-import { SharedModule } from '../shared/shared.module';
+import { MySharedModule } from '../shared/myshared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
@@ -18,7 +18,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    MySharedModule
   ],
   declarations: [
     AboutComponent,

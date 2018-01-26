@@ -4,12 +4,12 @@ import { ShellComponent } from './shell/shell.component';
 import { MainContentComponent } from './shell/main-content/main-content.component';
 import { TopBarComponent } from './shell/top-bar/top-bar.component';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from '../shared/shared.module';
+import { MySharedModule } from '../shared/myshared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
-  TranslateModule,
   TranslateLoader,
-  TranslateStaticLoader
+  TranslateStaticLoader,
+  TranslateModule
 } from 'ng2-translate';
 import { Http } from '@angular/http';
 import { FooterComponent } from '../footer/footer.component';
@@ -30,13 +30,17 @@ const routes: Routes = [
   {
     path: 'cash',
     loadChildren: '../cash/cash.module#CashModule'
+  },
+  {
+    path: 'cars',
+    loadChildren: '../cars/cars.module#CarsModule'
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule,
+    MySharedModule,
     RouterModule.forRoot(routes),
     TranslateModule.forRoot({
       provide: TranslateLoader,

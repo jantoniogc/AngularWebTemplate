@@ -5,7 +5,7 @@ import { UserComponent } from './user/user.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { UsersComponent } from './users.component';
-import { SharedModule } from '../shared/shared.module';
+import { MySharedModule } from '../shared/myshared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
@@ -20,7 +20,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
+    MySharedModule,
     RouterModule.forChild(routes)],
   declarations: [
     UserComponent,

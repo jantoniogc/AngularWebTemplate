@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmailComponent } from './email.component';
-import { SharedModule } from '../../shared/shared.module';
+import { MySharedModule } from '../../shared/Myshared.module';
 import { AboutModule } from '../about.module';
 import { CommonModule } from '@angular/common';
 
@@ -14,7 +14,7 @@ describe('EmailComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         CommonModule,
-        SharedModule
+        MySharedModule
       ],
       declarations: [ EmailComponent ]
     })

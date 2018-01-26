@@ -18,7 +18,12 @@ import { CommonModule } from '@angular/common';
 import { InputComponent } from './input/input.component';
 import { ControlErrorsComponent } from './control-errors/control-errors.component';
 import { TextareaComponent } from './textarea/textarea.component';
-
+import { TranslateModule } from 'ng2-translate';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
@@ -33,7 +38,13 @@ import { TextareaComponent } from './textarea/textarea.component';
     MatCheckboxModule,
     MatInputModule,
     MatListModule,
-    MatChipsModule
+    MatChipsModule,
+    TranslateModule,
+    DialogModule,
+    TableModule,
+    InputTextModule,
+    DialogModule,
+    ButtonModule
   ],
   exports: [
     CommonModule,
@@ -50,7 +61,13 @@ import { TextareaComponent } from './textarea/textarea.component';
     MatChipsModule,
     ControlErrorsComponent,
     InputComponent,
-    TextareaComponent
+    TextareaComponent,
+    TranslateModule,
+    DialogModule,
+    TableModule,
+    InputTextModule,
+    DialogModule,
+    ButtonModule
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }
@@ -58,4 +75,4 @@ import { TextareaComponent } from './textarea/textarea.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [InputComponent, ControlErrorsComponent, TextareaComponent]
 })
-export class SharedModule {}
+export class MySharedModule {}

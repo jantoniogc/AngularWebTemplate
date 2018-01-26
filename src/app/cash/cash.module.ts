@@ -4,7 +4,7 @@ import { NewComponent } from './new/new.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes  } from '@angular/router';
 import { CoreModule } from '../core/core.module';
-import { SharedModule } from '../shared/shared.module';
+import { MySharedModule } from '../shared/myshared.module';
 import { FormToolsService } from '../shared/form-tools.service';
 
 const routes: Routes = [
@@ -17,7 +17,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule,
+    MySharedModule,
     RouterModule.forChild(routes)
   ],
   declarations: [NewComponent]
