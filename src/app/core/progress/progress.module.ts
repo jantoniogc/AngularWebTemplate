@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProgressComponent } from './progress.component';
 import { Routes } from '@angular/router/src/config';
 import { RouterModule } from '@angular/router';
+import { MySharedModule } from '../../shared/myshared.module';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    MySharedModule,
     RouterModule.forChild(routes)
   ],
   declarations: [ProgressComponent]

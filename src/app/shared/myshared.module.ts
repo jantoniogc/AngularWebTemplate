@@ -24,6 +24,9 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { BrowserModule } from '@angular/platform-browser';
+import { IncrementadorComponent } from './Componentes/incrementador/incrementador.component';
+import { GraficoDonaComponent } from './Componentes/grafico-dona/grafico-dona.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   imports: [
@@ -44,7 +47,8 @@ import { BrowserModule } from '@angular/platform-browser';
     TableModule,
     InputTextModule,
     DialogModule,
-    ButtonModule
+    ButtonModule,
+    ChartsModule
   ],
   exports: [
     CommonModule,
@@ -67,12 +71,21 @@ import { BrowserModule } from '@angular/platform-browser';
     TableModule,
     InputTextModule,
     DialogModule,
-    ButtonModule
+    ButtonModule,
+    IncrementadorComponent,
+    GraficoDonaComponent,
+    ChartsModule
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [InputComponent, ControlErrorsComponent, TextareaComponent]
+  declarations: [
+    InputComponent,
+    ControlErrorsComponent,
+    TextareaComponent,
+    IncrementadorComponent,
+    GraficoDonaComponent
+  ]
 })
 export class MySharedModule {}
