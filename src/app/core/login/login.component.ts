@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private translate: TranslateService) {
+    translate.setDefaultLang('es');
   }
 
+  ngOnInit() {}
 }

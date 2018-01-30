@@ -85,6 +85,7 @@
       true,
       "single"
     ],
+    "prettier.singleQuote": true,
     "radix": true,
     "semicolon": [
       true,

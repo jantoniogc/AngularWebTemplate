@@ -1,5 +1,18 @@
 {
   "Home": "Portal",
   "Cash": "Caja",
-  "About": "Acerca de.."
+  "About": "Acerca de..",
+  "Name": "Nombre",
+  "Email": "Email",
+  "Password": "Contraseña",
+  "Confirm Password": "Confirmas Contraseña",
+  "Terms": "Terminos",
+  "Sign Up": "Registrar",
+  "Already have an account?": "¿Tienes una cuenta?",
+  "Sign In": "Inicia Session",
+  "Create your account and enjoy": "Crea una cuenta y unete",
+  "Register Now": "Registrate Ahora",
+  "Log In": "Inicia Session",
+  "UserName": "Usuario",
+  "Sign Up": "Registrate"
 }

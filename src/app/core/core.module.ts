@@ -1,6 +1,3 @@
-import { DaskboardComponent } from './daskboard/daskboard.component';
-import { Graficas1Component } from './graficas1/graficas1.component';
-import { ProgressComponent } from './progress/progress.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShellComponent } from './shell/shell.component';
@@ -9,45 +6,25 @@ import { TopBarComponent } from './shell/top-bar/top-bar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MySharedModule } from '../shared/myshared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from './shell/header/header.component';
+import { SidebarComponent } from './shell/sidebar/sidebar.component';
+import { BreadcrumbsComponent } from './shell/breadcrumbs/breadcrumbs.component';
+import { APP_ROUTES } from './core.routes';
+import { PagesComponent } from './shell/pages/pages.component';
+import { LoginComponent } from './login/login.component';
+
 import {
   TranslateLoader,
   TranslateStaticLoader,
   TranslateModule
 } from 'ng2-translate';
 import { Http } from '@angular/http';
-import { FooterComponent } from '../footer/footer.component';
-import { HeaderComponent } from './shell/header/header.component';
-import { SidebarComponent } from './shell/sidebar/sidebar.component';
-import { BreadcrumbsComponent } from './shell/breadcrumbs/breadcrumbs.component';
-
-const routes: Routes = [
-  {
-    path: '',
-    loadChildren: '../home/home.module#HomeModule'
-  },
-  {
-    path: 'about',
-    loadChildren: '../about/about.module#AboutModule'
-  },
-  {
-    path: 'users',
-    loadChildren: '../users/users.module#UsersModule'
-  },
-  {
-    path: 'cash',
-    loadChildren: '../cash/cash.module#CashModule'
-  },
-  {
-    path: 'cars',
-    loadChildren: '../cars/cars.module#CarsModule'
-  }
-];
-
 @NgModule({
   imports: [
     CommonModule,
     MySharedModule,
-    RouterModule.forRoot(routes),
+    APP_ROUTES,
     TranslateModule.forRoot({
       provide: TranslateLoader,
       useFactory: tralationFactory,
@@ -62,14 +39,14 @@ const routes: Routes = [
     HeaderComponent,
     SidebarComponent,
     BreadcrumbsComponent,
-    ProgressComponent,
-    Graficas1Component,
-    DaskboardComponent
+    PagesComponent
   ],
-  exports: [ShellComponent]
+  exports: [PagesComponent]
 })
 export class CoreModule {}
-
 export function tralationFactory(http: Http) {
   return new TranslateStaticLoader(http, '/assets/i18n', '.json');
 }
+
+
+

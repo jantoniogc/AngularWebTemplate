@@ -12,13 +12,13 @@ export class CarService {
 
   constructor(private http: HttpClient) {}
 
-  getCarsSmall() {
-    console.log('Servicio cargado');
-    return this.http.get('assets/data/cars-small.json')
-      .toPromise()
-      .then(res => <Car[]> res)
-      .then(data => {
-        return data;
-      });
-  }
+  // getCarsSmall() {
+  //   console.log('Servicio cargado');
+  //   return this.http.get('assets/data/cars-small.json')
+  //     .toPromise()
+  //     .then(res => <Car[]> res.data)
+  //     .then(data => {
+  //       return data;
+  //     });
+  // }
 }
