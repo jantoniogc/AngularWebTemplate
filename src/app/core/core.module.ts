@@ -20,17 +20,10 @@ import {
   TranslateModule
 } from 'ng2-translate';
 import { Http } from '@angular/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProgressComponent } from './progress/progress.component';
+import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 @NgModule({
-  imports: [
-    CommonModule,
-    MySharedModule,
-    APP_ROUTES,
-    TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: tralationFactory,
-      deps: [Http]
-    })
-  ],
   declarations: [
     ShellComponent,
     MainContentComponent,
@@ -41,7 +34,22 @@ import { Http } from '@angular/http';
     BreadcrumbsComponent,
     PagesComponent
   ],
-  exports: [PagesComponent]
+  imports: [
+    CommonModule,
+    MySharedModule,
+    APP_ROUTES,
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: tralationFactory,
+      deps: [Http]
+    })
+  ],
+  exports: [
+    HeaderComponent,
+    SidebarComponent,
+    BreadcrumbsComponent,
+    PagesComponent
+  ]
 })
 export class CoreModule {}
 export function tralationFactory(http: Http) {

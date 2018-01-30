@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: '../progress/progress.module#ProgressModule'
   },
   {
+    path: 'graficas1',
+    loadChildren: '../../graficas1/graficas1.module#Graficas1Module'
+  },
+  {
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
