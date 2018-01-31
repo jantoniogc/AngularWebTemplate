@@ -23,6 +23,7 @@ import { Http } from '@angular/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
+
 @NgModule({
   declarations: [
     ShellComponent,
@@ -38,6 +39,7 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
     CommonModule,
     MySharedModule,
     APP_ROUTES,
+    RouterModule,
     TranslateModule.forRoot({
       provide: TranslateLoader,
       useFactory: tralationFactory,
