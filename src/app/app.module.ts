@@ -17,7 +17,6 @@ import {
 } from 'ng2-translate';
 import { Http } from '@angular/http';
 
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -35,7 +34,8 @@ import { Http } from '@angular/http';
       deps: [Http]
     })
   ],
-  bootstrap: [PagesComponent]
+  bootstrap: [PagesComponent],
+  declarations: []
 })
 export class AppModule {}
 
