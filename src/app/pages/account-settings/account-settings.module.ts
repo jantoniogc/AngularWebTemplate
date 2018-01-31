@@ -15,7 +15,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    MySharedModule,
     RouterModule.forChild(routes)
   ],
   declarations: [AccountSettingsComponent]
