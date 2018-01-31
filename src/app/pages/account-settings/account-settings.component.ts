@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { forEach } from '@angular/router/src/utils/collection';
-import { SettingsService } from '../../services/settings.service';
+import { SettingsService } from '../../services/services.index';
 
 @Component({
   selector: 'app-account-settings',
@@ -17,7 +17,7 @@ export class AccountSettingsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    this.colocarCheck();
   }
 
   cambiarColor(tema: string, link: any) {
@@ -26,11 +26,20 @@ export class AccountSettingsComponent implements OnInit {
   }
 
   aplicarCheck(link: any) {
-    console.log(document.getElementsByClassName('selector'));
     let selectores= Array.from(document.getElementsByClassName('selector'));
     selectores.forEach(element => {
       element.classList.remove('working');
     });
     link.classList.add('working');
+  }
+
+  colocarCheck() {
+    let selectores = Array.from(document.getElementsByClassName('selector'));
+    const tema = this.ajustesServices.ajustes.tema;
+    selectores.forEach(element => {
+      if (element.getAttribute('data-theme') === tema){
+        element.classList.add('working');
+      }
+    });
   }
 }
