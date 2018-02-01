@@ -15,10 +15,22 @@ const routes: Routes = [
     loadChildren: '../../graficas1/graficas1.module#Graficas1Module'
   },
   {
+    path: 'graficas1',
+    loadChildren: '../../graficas1/graficas1.module#Graficas1Module'
+  },
+  {
+    path: 'promesas',
+    loadChildren: '../../pages/promesas/promesas.module#PromesasModule'
+  },
+  {
+    path: 'rxjs',
+    loadChildren: '../../pages/rxjs/rxjs.module#RxjsModule'
+  },
+  {
     path: 'account-settings',
     loadChildren: '../../pages/account-settings/account-settings.module#AccountSettingsModule'
   },
-  {
+   {
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
