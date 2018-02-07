@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { reject } from 'q';
-import { setInterval, clearInterval } from 'timers';
-import { promise } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-promesas',

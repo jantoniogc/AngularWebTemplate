@@ -7,12 +7,15 @@
   "Password": "Contraseña",
   "Confirm Password": "Confirmas Contraseña",
   "Terms": "Terminos",
-  "Sign Up": "Registrar",
   "Already have an account?": "¿Tienes una cuenta?",
   "Sign In": "Inicia Session",
   "Create your account and enjoy": "Crea una cuenta y unete",
   "Register Now": "Registrate Ahora",
   "Log In": "Inicia Session",
   "UserName": "Usuario",
-  "Sign Up": "Registrate"
+  "Sign Up": "Registrate",
+  "Remember me": "Recuerdame",
+  "Forgot pwd?": "¿Olvidate la contraseña?",
+  "Don't have an account?": "¿No tienes cuenta?",
+  "Login with Google": "Iniciar session con Google"
 }

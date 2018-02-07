@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { LoginGuardGuard } from '../../services/guards/login-guard.guard';
 
 const routes: Routes = [
   {

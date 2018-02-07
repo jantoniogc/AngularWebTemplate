@@ -27,6 +27,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IncrementadorComponent } from './Componentes/incrementador/incrementador.component';
 import { GraficoDonaComponent } from './Componentes/grafico-dona/grafico-dona.component';
 import { ChartsModule } from 'ng2-charts';
+import { ServiceModule } from '../services/service.module';
 
 @NgModule({
   imports: [
@@ -48,7 +49,8 @@ import { ChartsModule } from 'ng2-charts';
     InputTextModule,
     DialogModule,
     ButtonModule,
-    ChartsModule
+    ChartsModule,
+    ServiceModule
   ],
   exports: [
     CommonModule,
@@ -74,7 +76,8 @@ import { ChartsModule } from 'ng2-charts';
     ButtonModule,
     IncrementadorComponent,
     GraficoDonaComponent,
-    ChartsModule
+    ChartsModule,
+    ServiceModule
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }

@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { clearInterval } from 'timers';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';

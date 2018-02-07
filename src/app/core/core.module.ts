@@ -23,6 +23,7 @@ import { Http } from '@angular/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
+import { ServiceModule } from '../services/service.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
   imports: [
     CommonModule,
     MySharedModule,
+    ServiceModule,
     APP_ROUTES,
     RouterModule,
     TranslateModule.forRoot({
@@ -54,6 +56,7 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
   ]
 })
 export class CoreModule {}
+
 export function tralationFactory(http: Http) {
   return new TranslateStaticLoader(http, '/assets/i18n', '.json');
 }

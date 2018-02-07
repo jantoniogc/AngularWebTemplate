@@ -4,7 +4,8 @@
 <section id="wrapper" class="login-register login-sidebar" style="background-image:url(../assets/images/background/login-register.jpg);">
   <div class="login-box card">
     <div class="card-body">
-      <form class="form-horizontal form-material" id="loginform" action="index.html">
+      <form ngNativeValidate class="form-horizontal form-material" id="loginform" [formGroup]="form" (ngSubmit)="registrarUsuario()"
+        action="index.html">
         <a href="javascript:void(0)" class="text-center db">
           <img src="../assets/images/logo-icon.png" alt="Home" />
           <br/>
@@ -14,30 +15,36 @@
         <small translate>Create your account and enjoy</small>
         <div class="form-group m-t-20">
           <div class="col-xs-12">
-            <input class="form-control" type="text" required="" placeholder="{{'Name' | translate}}"
-             >
+            <input class="form-control" type="text" required placeholder="{{'Name' | translate}}" formControlName="nombre" name="nombre">
           </div>
         </div>
         <div class="form-group ">
           <div class="col-xs-12">
-            <input class="form-control" type="text" required="" placeholder="{{'Email' | translate}}"
-             >
+            <input class="form-control" type="text" required type="email" placeholder="{{'Email' | translate}}" formControlName="email"
+              name="email" id="email">
           </div>
         </div>
         <div class="form-group ">
           <div class="col-xs-12">
-            <input class="form-control" type="password" required="" placeholder="{{'Password' | translate}}">
+            <input class="form-control" type="password" required type="password" placeholder="{{'Password' | translate}}" formControlName="password"
+              name="password">
           </div>
         </div>
         <div class="form-group">
           <div class="col-xs-12">
-            <input class="form-control" type="password" required="" placeholder="{{'Confirm Password' | translate}}">
+            <input class="form-control" type="password" required type="password" placeholder="{{'Confirm Password' | translate}}" formControlName="password2"
+              name="password2">
           </div>
+        </div>
+        <div class="form-group" *ngIf="form.errors?.sonIguales && !form.printine">
+          <p class="text-danger">
+            Las constraseñas deben ser iguales
+          </p>
         </div>
         <div class="form-group row">
           <div class="col-md-12">
             <div class="checkbox checkbox-primary p-t-0">
-              <input id="checkbox-signup" type="checkbox">
+              <input id="checkbox-signup" type="checkbox" formControlName="condiciones">
               <label for="checkbox-signup"> I agree to all
                 <a href="#" translate>Terms</a>
               </label>
