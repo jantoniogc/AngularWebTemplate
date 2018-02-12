@@ -55,7 +55,7 @@ import { ServiceModule } from '../services/service.module';
     PagesComponent
   ]
 })
-export class CoreModule {}
+export class CoreModule { }
 
 export function tralationFactory(http: Http) {
   return new TranslateStaticLoader(http, '/assets/i18n', '.json');

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../../services/services.index';
+import { Usuario } from '../../../models/usuario.model';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../../redux/app.state';
+import { LogoutUsuarioAction } from '../../../../redux/usuario/usuario.actions';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +13,22 @@ import { UsuarioService } from '../../../services/services.index';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(
-    private _usuarioService: UsuarioService
-  ) { }
+  public usuario: Usuario;
 
-  ngOnInit() {
+  constructor(
+    private store: Store<AppState>,
+    private _usuarioService: UsuarioService,
+  ) {
+    this.store.select('usuario')
+      .subscribe((usuario) => {
+        this.usuario = usuario;
+      });
   }
 
+  ngOnInit() { }
+
+  logout() {
+    const action = new LogoutUsuarioAction();
+    this.store.dispatch(action);
+  }
 }

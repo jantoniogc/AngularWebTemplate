@@ -28,6 +28,8 @@ import { IncrementadorComponent } from './Componentes/incrementador/incrementado
 import { GraficoDonaComponent } from './Componentes/grafico-dona/grafico-dona.component';
 import { ChartsModule } from 'ng2-charts';
 import { ServiceModule } from '../services/service.module';
+import { PipesModule } from '../pipes/pipes.module';
+
 
 @NgModule({
   imports: [
@@ -50,8 +52,9 @@ import { ServiceModule } from '../services/service.module';
     DialogModule,
     ButtonModule,
     ChartsModule,
-    ServiceModule
-  ],
+    ServiceModule,
+    PipesModule
+   ],
   exports: [
     CommonModule,
     FormsModule,
@@ -77,7 +80,8 @@ import { ServiceModule } from '../services/service.module';
     IncrementadorComponent,
     GraficoDonaComponent,
     ChartsModule,
-    ServiceModule
+    ServiceModule,
+    PipesModule
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }

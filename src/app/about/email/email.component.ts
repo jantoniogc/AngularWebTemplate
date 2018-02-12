@@ -31,7 +31,6 @@ export class EmailComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.messageForm.value);
   }
 
   showError(fieldName: string) {

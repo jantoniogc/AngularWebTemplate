@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'graficas1',
-    data: { titulo: 'Graficas'},
+    data: { titulo: 'Graficas' },
     loadChildren: '../../graficas1/graficas1.module#Graficas1Module'
   },
   {
@@ -33,7 +33,12 @@ const routes: Routes = [
     data: { titulo: 'Account Settings' },
     loadChildren: '../../pages/account-settings/account-settings.module#AccountSettingsModule'
   },
-   {
+  {
+    path: 'profile',
+    data: { titulo: 'Prerfil de Usuario' },
+    loadChildren: '../../pages/profile/profile.module#ProfileModule'
+  },
+  {
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'

@@ -70,11 +70,11 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    let usuario = new Usuario(
-      this.form.value.nombre,
-      this.form.value.email,
-      this.form.value.password
-    );
+    let usuario: Usuario = {
+      nombre: this.form.value.nombre,
+      email: this.form.value.email,
+      password: this.form.value.password
+    };
     this.usuarioService.crearUsuario(usuario)
       .subscribe(resp => this.router.navigate(['/login']));
   }

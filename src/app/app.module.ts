@@ -16,6 +16,8 @@ import {
   TranslateModule
 } from 'ng2-translate';
 import { Http } from '@angular/http';
+import { EffectsModule } from '@ngrx/effects';
+import { ProfileEffects } from '../redux/usuario/usuario.effects';
 
 @NgModule({
   imports: [
@@ -32,6 +34,13 @@ import { Http } from '@angular/http';
       provide: TranslateLoader,
       useFactory: tralationFactory,
       deps: [Http]
+    }),
+    StoreModule.forRoot(AppReducer),
+    EffectsModule.forRoot([
+      ProfileEffects
+    ]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 //  Retains last 25 states
     })
   ],
   bootstrap: [PagesComponent],

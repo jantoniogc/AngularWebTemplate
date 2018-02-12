@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { Usuario } from '../../models/usuario.model';
+import { RequestLoginGoogleUserAction } from '../../../redux/usuario/usuario.actions';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../redux/app.state';
 
 declare function init_plugins();
 declare const gapi: any;
@@ -22,9 +25,14 @@ export class LoginComponent implements OnInit {
   constructor(
     private translate: TranslateService,
     private _router: Router,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private store: Store<AppState>
   ) {
     translate.setDefaultLang('es');
+    this.store.select('usuario')
+      .subscribe((usuario) => {
+        this.usuarioService.usuario = usuario;
+      });
   }
 
   ngOnInit() {
@@ -34,7 +42,6 @@ export class LoginComponent implements OnInit {
     if (this.email.length > 1) {
       this.recuerdame = true;
     }
-
   }
 
   googleInit() {
@@ -45,14 +52,17 @@ export class LoginComponent implements OnInit {
         scope: 'profile email'
       });
       this.attachSignin(document.getElementById('btnGoogle'));
+
+
     })
   }
 
   attachSignin(element) {
-    this.auth2.attachClickHandler(element, {}, googleUser => {
+    return this.auth2.attachClickHandler(element, {}, googleUser => {
       let token = googleUser.getAuthResponse().id_token;
       // usamos banillajs "window.location.href" por problema en el template al usar los router [NPI]
-      this.usuarioService.loginGoogle(token).subscribe(() => window.location.href= '#/dashboard');
+      const action = new RequestLoginGoogleUserAction(googleUser.getAuthResponse().id_token);
+      this.store.dispatch(action);
     });
   }
 
@@ -60,11 +70,11 @@ export class LoginComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    let usuario = new Usuario(
-      null,
-      form.value.email,
-      form.value.password
-    );
+    let usuario: Usuario = {
+      nombre: null,
+      email: form.value.email,
+      password: form.value.password
+    };
     this.usuarioService.login(usuario, form.value.recuerdame).subscribe(resp => this._router.navigate(['/dashboard']));
   }
 }

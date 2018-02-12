@@ -4,6 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
 import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
+import swal from 'sweetalert'
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../redux/app.state';
+import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
+
 
 @Injectable()
 export class UsuarioService {
@@ -13,9 +18,12 @@ export class UsuarioService {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private _subirArchivoService: SubirArchivoService
+
   ) {
     this.cargarStorage();
+
   }
 
   estaLogueado() {
@@ -57,20 +65,15 @@ export class UsuarioService {
 
   //LOGOUT
   logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('usuario');
-    this.cargarStorage();
+    this.usuario = null;
     this.router.navigate(['/login']);
   }
 
   // login Google
   loginGoogle(token: string) {
     let url = URL_SERVICIOS + '/login/google'
-    return this.http.post(url, { token: token })
-      .map((resp: any) => {
-        this.guardarStorage(resp.id, resp.tocken, resp.usuario);
-        return true;
-      });
+    return this.http.post(url, { token: token });
+
   }
 
   crearUsuario(usuario: Usuario) {
@@ -80,6 +83,15 @@ export class UsuarioService {
         swal('Usuario creado', usuario.email, 'success');
         return resp.usuario;
       });
+  }
+
+  actualizarUsuario(usuario: Usuario) {
+    let url = URL_SERVICIOS + '/usuario/' + usuario._id + '?tocken=' + this.token;
+    return this.http.put(url, usuario);
+  }
+
+  cambiarImagen(archivo: File, id: string) {
+    return this._subirArchivoService.subirArchivo(archivo, 'usuarios', id);
   }
 
 }

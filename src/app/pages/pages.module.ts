@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { AccountSettingsModule } from './account-settings/account-settings.module';
 import { PromesasModule } from './promesas/promesas.module';
 import { RxjsModule } from './rxjs/rxjs.module';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   imports: [
@@ -11,7 +13,10 @@ import { RxjsModule } from './rxjs/rxjs.module';
     AccountSettingsModule,
     MySharedModule,
     PromesasModule,
-    RxjsModule
+    RxjsModule,
+    ProfileModule
+
   ],
+  declarations: []
 })
 export class PagesModule {}
