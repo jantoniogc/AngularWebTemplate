@@ -94,4 +94,13 @@ export class UsuarioService {
     return this._subirArchivoService.subirArchivo(archivo, 'usuarios', id);
   }
 
+  cargarUsuarios(desde: number = 0) {
+    let url = URL_SERVICIOS + '/usuario' + '?desde=' + desde;
+    return this.http.get(url);
+  }
+
+  busqueda(termino: string, desde: number = 0){
+    let url = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + termino + '?desde=' + desde;
+    return this.http.get(url);
+  }
 }

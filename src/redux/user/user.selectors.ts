@@ -3,7 +3,7 @@ import { AppState } from '../app.state';
 import { User } from './user.model';
 
 
-export const selectUsuarios = (state: AppState) => state.usuarios;
+export const selectUsuarios = (state: AppState) => state.user;
 export const selectFilter = (state: AppState) => state.filter;
 
 export const getVisibleUsuarios = createSelector (

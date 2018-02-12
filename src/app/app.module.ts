@@ -18,6 +18,8 @@ import {
 import { Http } from '@angular/http';
 import { EffectsModule } from '@ngrx/effects';
 import { ProfileEffects } from '../redux/usuario/usuario.effects';
+import { SelectedEffects } from '../redux/Usuarios/selected/selected.effects';
+import { UsuariosEffects } from '../redux/Usuarios/usuarios.effects';
 
 @NgModule({
   imports: [
@@ -37,7 +39,9 @@ import { ProfileEffects } from '../redux/usuario/usuario.effects';
     }),
     StoreModule.forRoot(AppReducer),
     EffectsModule.forRoot([
-      ProfileEffects
+      ProfileEffects,
+      SelectedEffects,
+      UsuariosEffects
     ]),
     StoreDevtoolsModule.instrument({
       maxAge: 25 //  Retains last 25 states

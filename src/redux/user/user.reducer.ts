@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 import { User } from './user.model';
 import { AllActions, USER_ADD, USER_REMOVE, USER_TOGGLE, USER_UPDATE } from './user.actions';
 
-export function usuariosReducer(oldState: User[] = [], action: AllActions): User[] {
+export function userReducer(oldState: User[] = [], action: AllActions): User[] {
          switch (action.type) {
            case USER_ADD: {
              return [...oldState, action.newUser];

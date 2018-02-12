@@ -33,10 +33,27 @@ const routes: Routes = [
     data: { titulo: 'Account Settings' },
     loadChildren: '../../pages/account-settings/account-settings.module#AccountSettingsModule'
   },
+
+  //Mantenimiento
   {
     path: 'profile',
     data: { titulo: 'Prerfil de Usuario' },
     loadChildren: '../../pages/profile/profile.module#ProfileModule'
+  },
+  {
+    path: 'usuarios',
+    data: { titulo: 'Mantenimiento de Usuario' },
+    loadChildren: '../../pages/usuarios/usuarios.module#UsuariosModule'
+  },
+  {
+    path: 'medicos',
+    data: { titulo: 'Mantenimiento de Medicos' },
+    loadChildren: '../../pages/medicos/medicos.module#MedicosModule'
+  },
+  {
+    path: 'hospitales',
+    data: { titulo: 'Mantenimiento de Hospitales' },
+    loadChildren: '../../pages/hospitales/hospitales.module#HospitalesModule'
   },
   {
     path: '',

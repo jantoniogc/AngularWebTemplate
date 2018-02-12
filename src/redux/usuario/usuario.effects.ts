@@ -32,7 +32,6 @@ export class ProfileEffects {
     mergeMap((action: RequestLoginGoogleUserAction) => {
       return this.usuarioService.loginGoogle(action.token)
         .map((response: any) => {
-          console.log('redireccionamos');
           window.location.href = '#/dashboard';
           this.usuarioService.guardarStorage(response.usuario._id, response.tocken, response.usuario);
           return new UpdateUsuarioAction(response.usuario);
