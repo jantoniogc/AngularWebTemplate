@@ -60,6 +60,7 @@ const routes: Routes = [
     redirectTo: '/dashboard',
     pathMatch: 'full'
   },
+  // Otros
   {
     path: 'about',
     loadChildren: '../../about/about.module#AboutModule'

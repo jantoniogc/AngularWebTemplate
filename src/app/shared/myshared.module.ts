@@ -29,6 +29,7 @@ import { GraficoDonaComponent } from './Componentes/grafico-dona/grafico-dona.co
 import { ChartsModule } from 'ng2-charts';
 import { ServiceModule } from '../services/service.module';
 import { PipesModule } from '../pipes/pipes.module';
+import { ModalUploadComponent } from './Componentes/modal-upload/modal-upload.component';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { PipesModule } from '../pipes/pipes.module';
     GraficoDonaComponent,
     ChartsModule,
     ServiceModule,
-    PipesModule
+    PipesModule,
+    ModalUploadComponent
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }
@@ -92,7 +94,8 @@ import { PipesModule } from '../pipes/pipes.module';
     ControlErrorsComponent,
     TextareaComponent,
     IncrementadorComponent,
-    GraficoDonaComponent
+    GraficoDonaComponent,
+    ModalUploadComponent
   ]
 })
 export class MySharedModule {}

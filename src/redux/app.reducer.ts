@@ -5,6 +5,7 @@ import { filterReducer } from './filter/filter.reducer';
 import { profileReducer } from './usuario/usuario.reducer';
 import { usuariosReducer } from './Usuarios/usuarios.reducer';
 import { selectedUsuarioReducer } from './Usuarios/selected/selected.reducer';
+import { ModalReducer } from './ModalUpload/modal.reducer';
 
 
 
@@ -13,5 +14,6 @@ export const AppReducer: ActionReducerMap<AppState> = {
   filter: filterReducer,
   usuario: profileReducer,
   usuarios: usuariosReducer,
-  selected: selectedUsuarioReducer
+  selected: selectedUsuarioReducer,
+  modalUpload: ModalReducer
 };

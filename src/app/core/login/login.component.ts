@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { Usuario } from '../../models/usuario.model';
-import { RequestLoginGoogleUserAction } from '../../../redux/usuario/usuario.actions';
+import { RequestLoginGoogleUserAction, RequestLoginUserAction } from '../../../redux/usuario/usuario.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../redux/app.state';
 
@@ -75,6 +75,7 @@ export class LoginComponent implements OnInit {
       email: form.value.email,
       password: form.value.password
     };
-    this.usuarioService.login(usuario, form.value.recuerdame).subscribe(resp => this._router.navigate(['/dashboard']));
+    const action = new RequestLoginUserAction(usuario, this.recuerdame);
+    this.store.dispatch(action);
   }
 }

@@ -18,11 +18,7 @@ import { ProfileEffects } from '../../../redux/usuario/usuario.effects';
     CommonModule,
     MySharedModule,
     ServiceModule,
-    SHELL_ROUTES,
-    // StoreModule.forRoot(AppReducer),
-    // EffectsModule.forRoot([
-    //   ProfileEffects
-    // ])
+    SHELL_ROUTES
   ],
   declarations: []
 })

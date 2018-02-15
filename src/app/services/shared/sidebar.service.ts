@@ -47,6 +47,28 @@ export class SidebarService {
           url: '/medicos'
         }
       ]
+    },
+    {
+      titulo: 'Otros',
+      icono: 'mdi mdi-folder-account',
+      submenu: [
+        {
+          titulo: 'About',
+          url: '/about'
+        },
+        {
+          titulo: 'Users',
+          url: '/users'
+        },
+        {
+          titulo: 'Cash',
+          url: '/cash'
+        },
+        {
+          titulo: 'Cars',
+          url: '/cars'
+        }
+      ]
     }
   ];
 

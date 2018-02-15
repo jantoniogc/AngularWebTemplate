@@ -56,11 +56,7 @@ export class UsuarioService {
       localStorage.removeItem('email');
     }
     let url = URL_SERVICIOS + '/login'
-    return this.http.post(url, usuario)
-      .map((resp: any) => {
-        this.guardarStorage(resp.id, resp.tocken, resp.usuario);
-        return true;
-      });
+    return this.http.post(url, usuario);
   }
 
   //LOGOUT
@@ -87,7 +83,13 @@ export class UsuarioService {
 
   actualizarUsuario(usuario: Usuario) {
     let url = URL_SERVICIOS + '/usuario/' + usuario._id + '?tocken=' + this.token;
-    return this.http.put(url, usuario);
+    return this.http.put(url, usuario)
+      .map((resp: any) => {
+        if (usuario._id === this.usuario._id){
+          this.guardarStorage(resp.usuario._id, this.token, resp.usuario);
+        }
+        return resp;
+      })
   }
 
   cambiarImagen(archivo: File, id: string) {
@@ -102,5 +104,11 @@ export class UsuarioService {
   busqueda(termino: string, desde: number = 0){
     let url = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + termino + '?desde=' + desde;
     return this.http.get(url);
+  }
+
+  borrarUsuario(id: string){
+    let url = URL_SERVICIOS + '/usuario/' + id + '?tocken=' + this.token;
+    console.log(url);
+    return this.http.delete(url);
   }
 }

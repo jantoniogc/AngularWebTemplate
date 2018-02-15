@@ -4,6 +4,7 @@ import { Usuario } from '../../app/models/usuario.model';
 
 export const REQUEST_UPDATE_USUARIO = '[USUARIO] REQUEST_UPDATE_USUARIO';
 export const REQUEST_LOGIN_GOOGLE_USUARIO = '[USUARIO] REQUEST_LOGIN_GOOGLE_USUARIO';
+export const REQUEST_LOGIN_USUARIO = '[USUARIO] REQUEST_LOGIN_USUARIO'
 export const UPDATE_USUARIO = '[USUARIO] UPDATE_USUARIO';
 export const LOGOUT_USUARIO = '[USUARIO] LOGOUT_USUARIO';
 
@@ -24,6 +25,15 @@ export class RequestLoginGoogleUserAction implements Action {
   ) { }
 }
 
+export class RequestLoginUserAction implements Action {
+  readonly type = REQUEST_LOGIN_USUARIO;
+
+  constructor(
+    public usuario: Usuario,
+    public recordar: boolean
+  ) { }
+}
+
 export class UpdateUsuarioAction implements Action {
   readonly type = UPDATE_USUARIO;
 
@@ -38,4 +48,4 @@ export class LogoutUsuarioAction implements Action {
   constructor( ) { }
 }
 
-export type AllActions = UpdateUsuarioAction | RequestUpdateUserAction | LogoutUsuarioAction;
+export type AllActions = UpdateUsuarioAction | RequestUpdateUserAction | LogoutUsuarioAction| RequestLoginUserAction;

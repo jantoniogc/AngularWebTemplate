@@ -6,7 +6,7 @@ import { Actions, Effect } from '@ngrx/effects';
 
 
 import { mergeMap, map } from 'rxjs/operators';
-import { RequestUpdateUserAction, REQUEST_UPDATE_USUARIO, UpdateUsuarioAction, REQUEST_LOGIN_GOOGLE_USUARIO, RequestLoginGoogleUserAction } from './usuario.actions';
+import { RequestUpdateUserAction, REQUEST_UPDATE_USUARIO, UpdateUsuarioAction, REQUEST_LOGIN_GOOGLE_USUARIO, RequestLoginGoogleUserAction, REQUEST_LOGIN_USUARIO, RequestLoginUserAction } from './usuario.actions';
 import { UsuarioService } from '../../app/services/usuario/usuario.service';
 import { Router } from '@angular/router';
 
@@ -31,6 +31,19 @@ export class ProfileEffects {
     .pipe(
     mergeMap((action: RequestLoginGoogleUserAction) => {
       return this.usuarioService.loginGoogle(action.token)
+        .map((response: any) => {
+          window.location.href = '#/dashboard';
+          this.usuarioService.guardarStorage(response.usuario._id, response.tocken, response.usuario);
+          return new UpdateUsuarioAction(response.usuario);
+        });
+
+    })
+    );
+
+  @Effect() loginPosts$: Observable<Action> = this.actions$.ofType(REQUEST_LOGIN_USUARIO)
+    .pipe(
+    mergeMap((action: RequestLoginUserAction) => {
+      return this.usuarioService.login(action.usuario, action.recordar)
         .map((response: any) => {
           window.location.href = '#/dashboard';
           this.usuarioService.guardarStorage(response.usuario._id, response.tocken, response.usuario);
