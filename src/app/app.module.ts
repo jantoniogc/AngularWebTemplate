@@ -20,11 +20,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProfileEffects } from '../redux/usuario/usuario.effects';
 import { SelectedEffects } from '../redux/Usuarios/selected/selected.effects';
 import { UsuariosEffects } from '../redux/Usuarios/usuarios.effects';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule,
     CoreModule,
     NgbModule,
     StoreModule.forRoot(AppReducer),
@@ -48,7 +50,7 @@ import { UsuariosEffects } from '../redux/Usuarios/usuarios.effects';
     })
   ],
   bootstrap: [PagesComponent],
-  declarations: []
+  declarations: [PagesComponent]
 })
 export class AppModule {}
 

@@ -12,4 +12,8 @@ export class MedicosComponent implements OnInit {
   ngOnInit() {
   }
 
+  guardar() {
+    
+  }
+
 }

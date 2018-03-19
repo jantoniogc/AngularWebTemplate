@@ -5,7 +5,8 @@ import {
   SharedService,
   SidebarService,
   UsuarioService,
-  LoginGuardGuard
+  LoginGuardGuard,
+  VerificaTokenGuard
 } from './services.index';
 import { HttpClientModule } from '@angular/common/http';
 import { SubirArchivoService } from './subir-archivo/subir-archivo.service';
@@ -26,6 +27,7 @@ import { AdminGuard } from './guards/admin.guard';
     UsuarioService,
     LoginGuardGuard,
     AdminGuard,
+    VerificaTokenGuard,
     SubirArchivoService,
     ModalUploadService,
     HospitalService

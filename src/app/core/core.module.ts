@@ -11,7 +11,6 @@ import { HeaderComponent } from './shell/header/header.component';
 import { SidebarComponent } from './shell/sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './shell/breadcrumbs/breadcrumbs.component';
 import { APP_ROUTES } from './core.routes';
-import { PagesComponent } from './shell/pages/pages.component';
 import { LoginComponent } from './login/login.component';
 
 import {
@@ -34,7 +33,6 @@ import { ServiceModule } from '../services/service.module';
     HeaderComponent,
     SidebarComponent,
     BreadcrumbsComponent,
-    PagesComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +50,6 @@ import { ServiceModule } from '../services/service.module';
     HeaderComponent,
     SidebarComponent,
     BreadcrumbsComponent,
-    PagesComponent
   ]
 })
 export class CoreModule { }

@@ -1,15 +1,15 @@
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
-<section id="wrapper" class="login-register login-sidebar" style="background-image:url(../assets/images/background/login-register.jpg);">
+<section id="wrapper" class="login-register login-sidebar" style="background-image:url(assets/images/background/login-register.jpg);">
   <div class="login-box card">
     <div class="card-body">
       <form ngNativeValidate class="form-horizontal form-material" id="loginform" [formGroup]="form" (ngSubmit)="registrarUsuario()"
         action="index.html">
         <a href="javascript:void(0)" class="text-center db">
-          <img src="../assets/images/logo-icon.png" alt="Home" />
+          <img src="assets/images/logo-icon.png" alt="Home" />
           <br/>
-          <img src="../assets/images/logo-text.png" alt="Home" />
+          <img src="assets/images/logo-text.png" alt="Home" />
         </a>
         <h3 class="box-title m-t-40 m-b-0" translate>Register Now</h3>
         <small translate>Create your account and enjoy</small>
@@ -36,7 +36,7 @@
               name="password2">
           </div>
         </div>
-        <div class="form-group" *ngIf="form.errors?.sonIguales && !form.printine">
+        <div class="form-group" *ngIf="form.errors?.sonIguales && !form.markAsPristine()">
           <p class="text-danger">
             Las constraseñas deben ser iguales
           </p>

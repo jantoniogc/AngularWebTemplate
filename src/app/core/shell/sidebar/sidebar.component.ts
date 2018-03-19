@@ -17,7 +17,7 @@ export class SidebarComponent implements OnInit {
   public usuario: Usuario;
 
   constructor(
-    private _sidebarService: SidebarService,
+    public _sidebarService: SidebarService,
     private _usuarioService: UsuarioService,
     private _store: Store<AppState>
   ) {

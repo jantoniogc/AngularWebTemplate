@@ -1,11 +1,12 @@
 import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
-import { LoginGuardGuard, AdminGuard } from '../../services/services.index';
+import { LoginGuardGuard, AdminGuard, VerificaTokenGuard } from '../../services/services.index';
 
 
 const routes: Routes = [
   {
     path: 'dashboard',
+    canActivate: [VerificaTokenGuard],
     data: { titulo: 'Dashboard' },
     loadChildren: '../dashboard/dashboard.module#DashboardModule'
   },

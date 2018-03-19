@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from '../../models/usuario.model';
+import { Usuario } from './../../models/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
 import 'rxjs/add/operator/map';
@@ -10,6 +10,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../../redux/app.state';
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 import { Observable } from 'rxjs/Observable';
+import { UpdateUsuarioAction } from '../../../redux/Usuarios/usuarios.actions';
+import { LogoutUsuarioAction } from '../../../redux/usuario/usuario.actions';
 
 
 @Injectable()
@@ -22,7 +24,8 @@ export class UsuarioService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private _subirArchivoService: SubirArchivoService
+    private _subirArchivoService: SubirArchivoService,
+    private _store: Store<AppState>
 
   ) {
     this.cargarStorage();
@@ -66,6 +69,24 @@ export class UsuarioService {
     return this.http.post(url, usuario);
   }
 
+  renuevaTocken() {
+    let url = URL_SERVICIOS + '/login/renuevatoken';
+    url += '?tocken=' + this.token;
+
+    return this.http.get(url)
+      .map((resp:any) => {
+        this.token = resp.tocken;
+        console.log('Tocke Renovado');
+        localStorage.setItem('token', this.token);
+        return true;
+      })
+      .catch(err => {
+        swal('No se pudo renovar token', err.error.errors.message, 'error');
+        this._store.dispatch(new LogoutUsuarioAction());
+        return Observable.throw(err);
+      });
+  }
+
   //LOGOUT
   logout() {
     this.usuario = null;
@@ -87,7 +108,7 @@ export class UsuarioService {
         return resp.usuario;
       })
       .catch((err: any) => {
-        swal(err.error.mensaje, err.error.errors.message,'error');
+        swal(err.error.mensaje, err.error.errors.message, 'error');
         return Observable.throw(err);
       });
   }
