@@ -6,7 +6,7 @@ import { Actions, Effect } from '@ngrx/effects';
 
 
 import { mergeMap, map } from 'rxjs/operators';
-import { RequestUpdateUserAction, REQUEST_UPDATE_USUARIO, UpdateUsuarioAction, REQUEST_LOGIN_GOOGLE_USUARIO, RequestLoginGoogleUserAction, REQUEST_LOGIN_USUARIO, RequestLoginUserAction } from './usuario.actions';
+import { RequestUpdateUserAction, REQUEST_UPDATE_USUARIO, UpdateUsuarioAction, REQUEST_LOGIN_GOOGLE_USUARIO, RequestLoginGoogleUserAction, REQUEST_LOGIN_USUARIO, RequestLoginUserAction, AuthenticationErrorAction } from './usuario.actions';
 import { UsuarioService } from '../../app/services/usuario/usuario.service';
 import { Router } from '@angular/router';
 
@@ -21,9 +21,9 @@ export class ProfileEffects {
     mergeMap((action: RequestUpdateUserAction) => {
       return this.usuarioService.actualizarUsuario(action.usuario)
         .map((response: any) => {
+          swal('Usuario Actualizado', 'El usuario ha sido actualizado correctamente', 'success');
           return new UpdateUsuarioAction(response.usuario);
         });
-
     })
     );
 
@@ -32,8 +32,9 @@ export class ProfileEffects {
     mergeMap((action: RequestLoginGoogleUserAction) => {
       return this.usuarioService.loginGoogle(action.token)
         .map((response: any) => {
+          console.log(response);
           window.location.href = '#/dashboard';
-          this.usuarioService.guardarStorage(response.usuario._id, response.tocken, response.usuario);
+          this.usuarioService.guardarStorage(response.usuario._id, response.tocken, response.usuario, response.menu);
           return new UpdateUsuarioAction(response.usuario);
         });
 
@@ -46,8 +47,12 @@ export class ProfileEffects {
       return this.usuarioService.login(action.usuario, action.recordar)
         .map((response: any) => {
           window.location.href = '#/dashboard';
-          this.usuarioService.guardarStorage(response.usuario._id, response.tocken, response.usuario);
+          this.usuarioService.guardarStorage(response.usuario._id, response.tocken, response.usuario, response.menu);
           return new UpdateUsuarioAction(response.usuario);
+        })
+        .catch(err => {
+          swal('Error al autenticar', err.error.message, 'error');
+          return Observable.of(new AuthenticationErrorAction({ error: err.error.message }))
         });
 
     })

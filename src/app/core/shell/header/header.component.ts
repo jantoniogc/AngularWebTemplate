@@ -4,6 +4,8 @@ import { Usuario } from '../../../models/usuario.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../../redux/app.state';
 import { LogoutUsuarioAction } from '../../../../redux/usuario/usuario.actions';
+import { Router } from '@angular/router';
+import { SelectBusquedatAction } from '../../../../redux/busquedaSelect/busqueda.action';
 
 @Component({
   selector: 'app-header',
@@ -18,6 +20,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private store: Store<AppState>,
     private _usuarioService: UsuarioService,
+    private router: Router
   ) {
     this.store.select('usuario')
       .subscribe((usuario) => {
@@ -30,5 +33,10 @@ export class HeaderComponent implements OnInit {
   logout() {
     const action = new LogoutUsuarioAction();
     this.store.dispatch(action);
+  }
+
+  buscar(termino: string) {
+    this.store.dispatch(new SelectBusquedatAction({search: termino}));
+    this.router.navigate(['/busqueda', termino]);
   }
 }

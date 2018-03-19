@@ -7,6 +7,7 @@ export const REQUEST_LOGIN_GOOGLE_USUARIO = '[USUARIO] REQUEST_LOGIN_GOOGLE_USUA
 export const REQUEST_LOGIN_USUARIO = '[USUARIO] REQUEST_LOGIN_USUARIO'
 export const UPDATE_USUARIO = '[USUARIO] UPDATE_USUARIO';
 export const LOGOUT_USUARIO = '[USUARIO] LOGOUT_USUARIO';
+export const AUTHENTICATE_ERROR = '[Usuario] Error Autenticación'
 
 
 export class RequestUpdateUserAction implements Action {
@@ -45,7 +46,21 @@ export class UpdateUsuarioAction implements Action {
 export class LogoutUsuarioAction implements Action {
   readonly type = LOGOUT_USUARIO;
 
-  constructor( ) { }
+  constructor() { }
 }
 
-export type AllActions = UpdateUsuarioAction | RequestUpdateUserAction | LogoutUsuarioAction| RequestLoginUserAction;
+/**
+ * Autenticacion error.
+ * @class AuthenticationErrorAction
+ * @implements {Action}
+ */
+export class AuthenticationErrorAction implements Action {
+  readonly type = AUTHENTICATE_ERROR;
+
+  constructor(public payload?: any) { }
+}
+export type AllActions = UpdateUsuarioAction
+  | RequestUpdateUserAction
+  | LogoutUsuarioAction
+  | RequestLoginUserAction
+  | AuthenticationErrorAction;

@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SubirArchivoService } from './subir-archivo/subir-archivo.service';
 import { ModalUploadService } from '../shared/Componentes/modal-upload.service';
 import { HospitalService } from './hospital/hospital.service';
+import { AdminGuard } from './guards/admin.guard';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { HospitalService } from './hospital/hospital.service';
     SidebarService,
     UsuarioService,
     LoginGuardGuard,
+    AdminGuard,
     SubirArchivoService,
     ModalUploadService,
     HospitalService

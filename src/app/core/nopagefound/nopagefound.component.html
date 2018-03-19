@@ -1,3 +1,12 @@
-<p>
-  qweqeqweqewnopagefound works!
-</p>
+<section class="error-page" id="wrapper">
+  <div class="error-box">
+    <div class="error-body text-center">
+      <h1>404</h1>
+      <h3 class="text-uppercase">Page Not Found !</h3>
+      <p class="text-muted m-t-30 m-b-30">Parece que la página a la que intenta acceder no existe</p>
+      <a class="btn btn-info btn-rounded waves-effect waves-light m-b-40" [routerLink]="['/login']" routerLinkActive="active"
+      routerLinkActive="router-link-active">ir a Inicio</a>
+    </div>
+    <footer class="footer text-center">© {{anyo}} Admin Pro.</footer>
+  </div>
+</section>

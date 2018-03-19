@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { AllActions, UPDATE_USUARIO, LOGOUT_USUARIO } from './usuario.actions';
+import { AllActions, UPDATE_USUARIO, LOGOUT_USUARIO, AUTHENTICATE_ERROR } from './usuario.actions';
 import { Usuario } from '../../app/models/usuario.model';
 
 
@@ -23,6 +23,8 @@ export function profileReducer(oldUsuario = INITIAL_STATE, action: AllActions): 
       return action.usuario;
     case LOGOUT_USUARIO:
       return INITIAL_STATE;
+    case AUTHENTICATE_ERROR:
+      return INITIAL_STATE
     default:
       return oldUsuario;
   }

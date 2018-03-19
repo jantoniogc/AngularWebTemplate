@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
-import { LoginGuardGuard } from '../../services/guards/login-guard.guard';
+import { LoginGuardGuard, AdminGuard } from '../../services/services.index';
+
 
 const routes: Routes = [
   {
@@ -42,6 +43,7 @@ const routes: Routes = [
   },
   {
     path: 'usuarios',
+    canActivate: [AdminGuard],
     data: { titulo: 'Mantenimiento de Usuario' },
     loadChildren: '../../pages/usuarios/usuarios.module#UsuariosModule'
   },
@@ -51,9 +53,19 @@ const routes: Routes = [
     loadChildren: '../../pages/medicos/medicos.module#MedicosModule'
   },
   {
+    path: 'medico/:id',
+    data: { titulo: 'Mantenimiento de Medicos' },
+    loadChildren: '../../pages/medicos/medicos.module#MedicosModule'
+  },
+  {
     path: 'hospitales',
     data: { titulo: 'Mantenimiento de Hospitales' },
     loadChildren: '../../pages/hospitales/hospitales.module#HospitalesModule'
+  },
+  {
+    path: 'busqueda/:termino',
+    data: { titulo: 'Buscador' },
+    loadChildren: '../../pages/busqueda/busqueda.module#BusquedaModule'
   },
   {
     path: '',

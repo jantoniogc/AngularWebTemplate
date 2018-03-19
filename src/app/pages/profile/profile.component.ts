@@ -33,6 +33,9 @@ export class ProfileComponent implements OnInit {
   ) {
     translate.setDefaultLang('es');
     this.usuario = this._usuarioService.usuario;
+    this.store.select('usuario').subscribe(usuario => {
+      this.usuario = usuario;
+    });
   }
 
   ngOnInit() {

@@ -4,7 +4,7 @@ import { URL_SERVICIOS } from "../../config/config";
 
 @Injectable()
 export class HospitalService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   public totalHospitales: number = 0;
 
@@ -16,5 +16,5 @@ export class HospitalService {
     });
   }
 
-  
+
 }

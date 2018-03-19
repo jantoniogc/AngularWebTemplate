@@ -6,4 +6,5 @@ export interface Usuario {
   google?: boolean;
   _id?: string;
   role?: string;
+  menu?: any;
 }
